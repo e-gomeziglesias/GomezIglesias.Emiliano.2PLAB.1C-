@@ -11,12 +11,12 @@ int controller_getIndexEditorialById(LinkedList* pArrayListEditorial, int id);
 int controller_getIndexLibroById(LinkedList* pArrayListLibro, int id);
 int controller_ListLibros(LinkedList* pArrayListLibro, LinkedList* pArrayListEditorial);
 int controller_ListEditoriales(LinkedList* pArrayListEditorial);
-
-
+int controller_saveLibroAsText(char* path , LinkedList* pArrayListLibro);
+int controller_saveEditorialAsText(char* path , LinkedList* pArrayListEditorial);
+int controller_sortLibros(LinkedList* pArrayListEmployee);
+int controller_ListarLibrosDeMinotauro(LinkedList* pArrayListaLibro, char* pathArchivoMinotauro, LinkedList* pArrayListEditorial);
 
 int controller_addEmployee(LinkedList* pArrayListEmployee);
 int controller_editEmployee(LinkedList* pArrayListEmployee);
 int controller_removeEmployee(LinkedList* pArrayListEmployee);
-int controller_sortEmployee(LinkedList* pArrayListEmployee);
-int controller_saveAsText(char* path , LinkedList* pArrayListEmployee);
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);

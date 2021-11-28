@@ -161,6 +161,14 @@ int libro_CompararPorAutor(void* l1, void* l2);
 /// @param l2 puntero a void del segundo libro
 /// @return 0 si son iguales, -1 si el id del segundo es menor que el primero, 1 si el id del segundo es mayor que el primero.
 int libro_CompararPorId(void* l1, void* l2);
+
+/// @fn int libro_FiltrarMinotauro(void*)
+/// @brief Permite determinar si un elemento void tiene como editorial a MINOTAURO
+///
+/// @param pElement puntero a un elemento
+/// @return 0 si no pertenece, 1 si pertenece
+int libro_FiltrarMinotauro(void* pElement);
+
 /// @fn int libro_isValidIdLibro(char*)
 /// @brief permite validar un Id de libro, recibido como cadena
 ///

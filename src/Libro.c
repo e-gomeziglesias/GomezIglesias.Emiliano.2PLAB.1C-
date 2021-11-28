@@ -6,7 +6,7 @@
  */
 
 #include "Libro.h"
-
+#define ID_MINOTAURO 4
 
 //1.
 eLibro* libro_new()
@@ -243,7 +243,24 @@ int libro_CompararPorId(void* l1, void* l2)
 	return retorno;
 }
 
+int libro_FiltrarMinotauro(void* pElement)
+{
+	int retorno = 0;
+	eLibro* auxLibro;
+	int auxIdEditorial;
 
+	if(pElement != NULL)
+	{
+		auxLibro = (eLibro*) pElement;
+		libro_getIdEditorial(auxLibro, &auxIdEditorial);
+		if(auxIdEditorial == ID_MINOTAURO)
+		{
+			retorno = 1;
+		}
+
+	}
+	return retorno;
+}
 
 
 //.

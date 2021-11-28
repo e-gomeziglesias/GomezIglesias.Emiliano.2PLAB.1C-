@@ -585,3 +585,41 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
     }
     return returnAux;
 }
+
+/// @fn LinkedList ll_filter*(LinkedList*, int(*)(void*))
+/// @brief Itera los elementos de una lista y los pasa por una funcion criterio. Crea una nueva lista
+/// con los elementos que cumplieron el criterio
+///
+/// @param this lista original donde se buscaran los elementos que cumplan con el criterio
+/// @param fn funcion criterio. Devuelve 1 si hay que agregar el elemento o 0 si no hay que agregarlo.
+/// @return devuelve la direccion de la lista resultado si se pudo crear con exito. Caso contrario devuelve NULL
+LinkedList* ll_filter(LinkedList* this, int(*fn)(void* element))
+{
+	LinkedList* listaResultado = NULL;
+	int tamListaParametro;
+	void* auxElement;
+	if(this != NULL && fn != NULL)
+	{
+		listaResultado = ll_newLinkedList();
+		if(listaResultado != NULL)
+		{
+			tamListaParametro = ll_len(this);
+			if(tamListaParametro > 0)
+			{
+				for(int i=0; i<tamListaParametro; i++)
+				{
+					auxElement = ll_get(this, i);
+					if(fn(auxElement)==1) //caso exitoso. Agrego a la lista
+					{
+						if(ll_add(listaResultado, auxElement)==-1) //error al agregar
+						{
+							ll_deleteLinkedList(listaResultado); //elimino la lista que cree y rompo el for
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+	return listaResultado; //si llegara a ocurrir algun error, la lista sera NULL
+}

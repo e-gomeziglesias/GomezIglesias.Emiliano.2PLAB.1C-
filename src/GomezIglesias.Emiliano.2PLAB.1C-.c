@@ -78,7 +78,9 @@ int main(void)
 					Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros", "No se pudieron mostrar los libros");
 					system("pause");
 				break;
-
+				case 5:
+					retorno = controller_ListarLibrosDeMinotauro(listaLibros, ARCHIVO_FILTRO, listaEditoriales);
+					Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros de la editorial Minotauro. El listado se guardo en un archivo de texto.", "No se pudo crear la lista");
 			}
 		}while(opcion != 0);
 	}

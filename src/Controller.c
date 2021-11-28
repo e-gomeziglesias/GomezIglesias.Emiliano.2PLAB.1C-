@@ -416,6 +416,112 @@ int controller_sortLibros(LinkedList* pArrayListEmployee)
 	return retorno;
 }
 
+
+int controller_ListarLibrosDeMinotauro(LinkedList* pArrayListaLibro, char* pathArchivoMinotauro, LinkedList* pArrayListEditorial)
+{
+	int retorno = -1;
+	LinkedList* listaMinotauro = NULL;
+
+	if(pArrayListaLibro != NULL)
+	{
+		listaMinotauro = ll_filter(pArrayListaLibro, libro_FiltrarMinotauro);
+		if(listaMinotauro != NULL)
+		{
+			if(!controller_saveLibroAsText(pathArchivoMinotauro, listaMinotauro) && !controller_ListLibros(listaMinotauro, pArrayListEditorial))
+			{
+				retorno = 0;
+			}
+		}
+		ll_clear(listaMinotauro);
+	}
+	return retorno;
+}
+
+/// @fn int controller_saveLibroAsText(char*, LinkedList*)
+/// @brief Permite guardar un listado del libros en archivo (modo texto)
+///
+/// @param path ruta del archivo
+/// @param pArrayListLibro listado de libros
+/// @return 0 si ok, -1 si error
+int controller_saveLibroAsText(char* path , LinkedList* pArrayListLibro)
+{
+    int retorno = -1;
+    int tamLista;
+    FILE* pFile;
+    int id;
+    char titulo[150];
+    char autor[150];
+    float precio;
+    int idEditorial;
+
+    if(path != NULL && pArrayListLibro != NULL)
+    {
+    	pFile = File_OpenTXTFileForWriting(path);
+    	if(pFile != NULL)
+    	{
+        	tamLista = ll_len(pArrayListLibro);
+        	{
+        		fprintf(pFile, "id,titulo,autor,precio,idEditorial\n");//imprimo la cabecera en el archivo
+            	for(int i=0; i<tamLista; i++)
+            	{
+            		retorno = controller_getLibro(pArrayListLibro, i, &id, titulo, autor, &precio, &idEditorial);
+            		if(retorno)
+            		{
+            			break;
+            		}
+            		else
+            		{
+                		fprintf(pFile, "%d,%s,%s,%f,%d\n", id, titulo, autor, precio, idEditorial);
+            		}
+            	}
+        	}
+        	File_CloseFile(pFile);
+    	}
+    }
+    return retorno;
+}
+
+/// @fn int controller_saveLibroAsText(char*, LinkedList*)
+/// @brief Permite guardar un listado del libros en archivo (modo texto)
+///
+/// @param path ruta del archivo
+/// @param pArrayListLibro listado de libros
+/// @return 0 si ok, -1 si error
+int controller_saveEditorialAsText(char* path , LinkedList* pArrayListEditorial)
+{
+    int retorno = -1;
+    int tamLista;
+    FILE* pFile;
+    int id;
+    char nombre[150];
+
+    if(path != NULL && pArrayListEditorial != NULL)
+    {
+    	pFile = File_OpenTXTFileForWriting(path);
+    	if(pFile != NULL)
+    	{
+        	tamLista = ll_len(pArrayListEditorial);
+        	{
+        		fprintf(pFile, "id,nombre\n");//imprimo la cabecera en el archivo
+            	for(int i=0; i<tamLista; i++)
+            	{
+            		retorno = controller_getEditorial(pArrayListEditorial, i, &id, nombre);
+            		if(retorno)
+            		{
+            			break;
+            		}
+            		else
+            		{
+                		fprintf(pFile, "%d,%s\n", id, nombre);
+            		}
+            	}
+        	}
+        	File_CloseFile(pFile);
+    	}
+    }
+    return retorno;
+}
+
 //3.
 /** \brief Permite dar de alta un empleado, cargando los datos por teclado
  *
@@ -602,44 +708,9 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  *
  */
 /*
-int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
-{
-    int retorno = -1;
-    int tamLista;
-    FILE* pFile;
-    int id;
-    char nombre[50];
-    int horasTrabajadas;
-    int sueldo;
-    if(path != NULL && pArrayListEmployee != NULL)
-    {
-    	pFile = File_OpenTXTFileForWriting(path);
-    	if(pFile != NULL)
-    	{
-        	tamLista = ll_len(pArrayListEmployee);
-        	{
-        		fprintf(pFile, "id,nombre,horasTrabajadas,sueldo\n");//imprimo la cabecera en el archivo
-            	for(int i=0; i<tamLista; i++)
-            	{
-            		retorno = controller_getEmployee(pArrayListEmployee, i, &id, nombre, &horasTrabajadas, &sueldo);
-            		if(retorno)
-            		{
-            			break;
-            		}
-            		else
-            		{
-                		fprintf(pFile, "%d,%s,%d,%d\n", id, nombre, horasTrabajadas, sueldo);
-            		}
-            	}
-        	}
-        	File_CloseFile(pFile);
-    	}
-    }
-    return retorno;
-}
-*/
+
 //9.
-/** \brief Guarda los datos de los empleados en el archivo data.bin (modo binario).
+// \brief Guarda los datos de los empleados en el archivo data.bin (modo binario).
  *
  * \param path char* ruta del archivo
  * \param pArrayListEmployee LinkedList* lista de donde se recuperaran los datos que se guardaran en el archivo
