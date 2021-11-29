@@ -7,7 +7,8 @@
 
 #include "Libro.h"
 #define ID_MINOTAURO 4
-
+#define ID_PLANETA 1
+#define ID_SIGLO 2
 //1.
 eLibro* libro_new()
 {
@@ -262,6 +263,33 @@ int libro_FiltrarMinotauro(void* pElement)
 	return retorno;
 }
 
+int libro_Mapear(void* pElement)
+{
+	int retorno = -1;
+	eLibro* auxElement = NULL;
+	auxElement = (eLibro*) pElement;
+
+	int id1 = ID_PLANETA;
+	int id2 = ID_SIGLO;
+	int auxIdEditorial;
+	float auxPrecio;
+
+	libro_getIdEditorial(auxElement, &auxIdEditorial);
+	libro_getPrecio(auxElement, &auxPrecio);
+	if(auxIdEditorial == id1 && auxPrecio >= 300)
+	{
+		auxPrecio = auxPrecio * 0.8;
+		libro_setPrecio(auxElement, auxPrecio);
+	}
+	if(auxIdEditorial == id2 && auxPrecio <= 200)
+	{
+		auxPrecio = auxPrecio*0.9;
+		libro_setPrecio(auxElement, auxPrecio);
+	}
+	retorno = 0;
+
+	return retorno;
+}
 
 //.
 int libro_isValidIdLibro(char* idStr)
@@ -316,3 +344,5 @@ int libro_isValidTitulo(char* tituloStr)
 	}
 	return retorno;
 }
+
+

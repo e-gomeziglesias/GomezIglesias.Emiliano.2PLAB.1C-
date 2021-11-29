@@ -432,7 +432,22 @@ int controller_ListarLibrosDeMinotauro(LinkedList* pArrayListaLibro, char* pathA
 				retorno = 0;
 			}
 		}
-		ll_clear(listaMinotauro);
+		ll_deleteLinkedList(listaMinotauro);
+	}
+	return retorno;
+}
+
+int controller_mapeo(LinkedList* pArrayListaLibro, LinkedList* pArrayListEditorial, char* pathArchivoMapeo)
+{
+	int retorno = -1;
+	LinkedList* listaMapeada;
+	if(pArrayListaLibro != NULL && pathArchivoMapeo != NULL)
+	{
+		listaMapeada = ll_map(pArrayListaLibro, libro_Mapear);
+		if(!controller_ListLibros(listaMapeada, pArrayListEditorial))
+		{
+			retorno = controller_saveLibroAsText(pathArchivoMapeo, listaMapeada);
+		}
 	}
 	return retorno;
 }
@@ -471,7 +486,7 @@ int controller_saveLibroAsText(char* path , LinkedList* pArrayListLibro)
             		}
             		else
             		{
-                		fprintf(pFile, "%d,%s,%s,%f,%d\n", id, titulo, autor, precio, idEditorial);
+                		fprintf(pFile, "%d,%s,%s,%.2f,%d\n", id, titulo, autor, precio, idEditorial);
             		}
             	}
         	}

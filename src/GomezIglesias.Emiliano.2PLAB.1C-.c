@@ -35,11 +35,15 @@ ACLARACIÓN: Se deberá imprimir la descripción de la editorial.
 #define ARCHIVO_LIBROS "libros.csv"
 #define ARCHIVO_EDITORIALES "editoriales.csv"
 #define ARCHIVO_FILTRO "filtrado.csv"
+#define ARCHIVO_MAPEADO "mapeado.csv"
+
 
 int main(void)
 {
 	setbuf(stdout, NULL);
 	int opcion;
+	int flagCargaLibros = 0;
+	int flagCargaEditoriales = 0;
 	LinkedList* listaLibros;
 	LinkedList* listaEditoriales;
 	int retorno;
@@ -60,30 +64,80 @@ int main(void)
 				case 1:
 					retorno = controller_loadLibroFromText(ARCHIVO_LIBROS, listaLibros);
 					Menu_AnalizarRetorno(retorno, "Los libros se cargaron exitosamente desde el archivo de texto", "No se pudieron cargar los libros en la lista");
-				system("pause");
+					if (retorno == 0)
+					{
+						flagCargaLibros = 1;
+					}
+					system("pause");
 				break;
 				case 2:
 					retorno = controller_loadEditorialFromText(ARCHIVO_EDITORIALES, listaEditoriales);
 					Menu_AnalizarRetorno(retorno, "Las editoriales se cargaron exitosamente desde el archivo de texto", "No se pudieron cargar las editoriales en la lista");
+					if (retorno == 0)
+					{
+						flagCargaEditoriales = 1;
+					}
 					system("pause");
 				break;
 				case 3:
+					if(flagCargaEditoriales == 1 && flagCargaLibros == 1)
+					{
 					retorno = controller_sortLibros(listaLibros);
 					Menu_AnalizarRetorno(retorno, "Los libros se ordenaron segun el criterio elegido", "No se pudieron ordenar los libros");
-
+					}
+					else
+					{
+						printf("Debe cargar los archivos de libros y de editoriales primero\n");
+					}
 					system("pause");
 				break;
 				case 4:
-					retorno = controller_ListLibros(listaLibros, listaEditoriales);
-					Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros", "No se pudieron mostrar los libros");
+					if(flagCargaEditoriales == 1 && flagCargaLibros == 1)
+					{
+						retorno = controller_ListLibros(listaLibros, listaEditoriales);
+						Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros", "No se pudieron mostrar los libros");
+					}
+					else
+					{
+						printf("Debe cargar los archivos de libros y de editoriales primero\n");
+					}
 					system("pause");
 				break;
 				case 5:
-					retorno = controller_ListarLibrosDeMinotauro(listaLibros, ARCHIVO_FILTRO, listaEditoriales);
-					Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros de la editorial Minotauro. El listado se guardo en un archivo de texto.", "No se pudo crear la lista");
+
+					if(flagCargaEditoriales == 1 && flagCargaLibros == 1)
+					{
+						retorno = controller_ListarLibrosDeMinotauro(listaLibros, ARCHIVO_FILTRO, listaEditoriales);
+						Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros de la editorial Minotauro. El listado se guardo en un archivo de texto.", "No se pudo crear la lista");
+					}
+					else
+					{
+						printf("Debe cargar los archivos de libros y de editoriales primero\n");
+					}
+					system("pause");
+				break;
+				case 6:
+					if(flagCargaEditoriales == 1 && flagCargaLibros == 1)
+					{
+						retorno = controller_mapeo(listaLibros, listaEditoriales, ARCHIVO_MAPEADO);
+						Menu_AnalizarRetorno(retorno, "Se muestra el listado de libros con descuentos aplicados. El listado se guardo en un archivo de texto.", "No se pudo crear la lista");
+					}
+					else
+					{
+						printf("Debe cargar los archivos de libros y de editoriales primero\n");
+					}
+					system("pause");
+				break;
+				case 0:
+					printf("\nHa salido del programa\n");
+					system("pause");
+				break;
 			}
 		}while(opcion != 0);
 	}
+
+	ll_deleteLinkedList(listaEditoriales);
+	ll_deleteLinkedList(listaLibros);
 
 	return EXIT_SUCCESS;
 }

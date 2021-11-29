@@ -15,8 +15,11 @@ int controller_saveLibroAsText(char* path , LinkedList* pArrayListLibro);
 int controller_saveEditorialAsText(char* path , LinkedList* pArrayListEditorial);
 int controller_sortLibros(LinkedList* pArrayListEmployee);
 int controller_ListarLibrosDeMinotauro(LinkedList* pArrayListaLibro, char* pathArchivoMinotauro, LinkedList* pArrayListEditorial);
+int controller_mapeo(LinkedList* pArrayListaLibro, LinkedList* pArrayListEditorial, char* pathArchivoMapeo);
 
+/*
 int controller_addEmployee(LinkedList* pArrayListEmployee);
 int controller_editEmployee(LinkedList* pArrayListEmployee);
 int controller_removeEmployee(LinkedList* pArrayListEmployee);
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
+*/

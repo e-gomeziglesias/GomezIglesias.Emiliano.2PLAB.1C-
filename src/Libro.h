@@ -169,6 +169,8 @@ int libro_CompararPorId(void* l1, void* l2);
 /// @return 0 si no pertenece, 1 si pertenece
 int libro_FiltrarMinotauro(void* pElement);
 
+int libro_Mapear(void* pElement);
+
 /// @fn int libro_isValidIdLibro(char*)
 /// @brief permite validar un Id de libro, recibido como cadena
 ///

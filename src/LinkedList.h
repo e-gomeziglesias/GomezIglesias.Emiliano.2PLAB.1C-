@@ -54,3 +54,9 @@ LinkedList* ll_subList(LinkedList* this,int from,int to);
 LinkedList* ll_clone(LinkedList* this);
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
 LinkedList* ll_filter(LinkedList* this, int(*fn)(void* element));
+LinkedList* ll_map(LinkedList* this, int(*fn)(void* pElement));
+
+
+/*
+int ll_count(LinkedList* this, int (*fn)(void* element));
+*/

@@ -1,12 +1,12 @@
 id,titulo,autor,precio,idEditorial
 1,The Capture of Bigfoot,Flin Bugdall,888.51,6
-2,Hellraiser,Hewitt Wilprecht,170.84,2
+2,Hellraiser,Hewitt Wilprecht,153.76,2
 3,The Sound of Music,Kerrin Dracksford,723.76,4
 4,The Monkey,Tanney Wem,730.56,2
 5,Trailer Park Boys,Nickolas Tuttle,537.49,6
 6,I Really Hate My Job,Nikolas Mitchelmore,985.64,5
 7,Bangkok Dangerous,Cyrille Sedgmond,680.49,5
-8,The Cry,Maxy Jindacek,169.72,2
+8,The Cry,Maxy Jindacek,152.75,2
 9,Blame,Mallorie Breckenridge,866.23,3
 10,Someone Else is America,Cary Blazeby,749.16,6
 11,Streets of Blood,Thomasin Goulston,741.73,5
@@ -15,17 +15,17 @@ id,titulo,autor,precio,idEditorial
 14,Jackpot,Gerry Champness,654.12,4
 15,Mugger,Ximenes Guisby,898.38,5
 16,Dana Carvey,Emanuel Mc Gee,868.15,3
-17,Bedazzled,Murray Campion,658.9,1
+17,Bedazzled,Murray Campion,527.12,1
 18,How Bruce Lee Changed the World,Goddart Mar,755.01,5
-19,Water for Elephants,Myrvyn Huscroft,938.7,4
-20,Hard to Hold,Pennie Heintzsch,582.25,1
+19,Water for Elephants,Myrvyn Huscroft,938.70,4
+20,Hard to Hold,Pennie Heintzsch,465.80,1
 21,Heavyweights,Desiri Tuerena,558.32,5
-22,Shaft,Audrie Swales,616.9,1
+22,Shaft,Audrie Swales,493.52,1
 23,Sex in Chains,Kimberli Randalston,755.75,4
-24,Best Defense,Elysia Lukasik,587.7,1
+24,Best Defense,Elysia Lukasik,470.16,1
 25,Lucio,Terra Halstead,730.68,5
 26,The Ugly,Annette Columbell,737.78,3
-27,The Soul of a Man,Halli Doogue,192.78,2
+27,The Soul of a Man,Halli Doogue,173.50,2
 28,Burning Palms,Wendell Smitham,551.63,3
 29,Fraternity Demon,Gabrila Muriel,949.33,4
 30,Card Subject To Change,Noble Shird,504.63,3
@@ -40,7 +40,7 @@ id,titulo,autor,precio,idEditorial
 39,Like Father Like Son,Arlie Panichelli,660.71,4
 40,Man of Tai Chi,Siward Wesker,712.06,2
 41,A Stone Left Unturned,Cybil Chaplain,719.52,4
-42,Biggie and Tupac,Deirdre Saph,502.34,1
+42,Biggie and Tupac,Deirdre Saph,401.87,1
 43,Planet of the Apes,Dedie Moorey,512.05,6
 44,One Hundred Men and a Girl,Feodora Lehrer,808.74,6
 45,Hum Dil De Chuke Sanam,Raimundo Orsman,915.53,5
@@ -54,22 +54,22 @@ id,titulo,autor,precio,idEditorial
 53,I will Be Home For Christmas,Florenza Marking,994.26,4
 54,Zoom,Reamonn Fahey,762.52,5
 55,Across the Tracks,Kaile Lippi,678.81,6
-56,The Wind Rises,Sergei Denness,556.4,5
+56,The Wind Rises,Sergei Denness,556.40,5
 57,A Cinderella Story,Yale Castellino,740.62,4
 58,Georgy Girl,Bunnie McGraith,518.26,6
-59,Suicide Room,Ferne Giorgione,996.1,2
-60,The Armwrestler From Solitude,Bax Ashenhurst,534.85,1
+59,Suicide Room,Ferne Giorgione,996.10,2
+60,The Armwrestler From Solitude,Bax Ashenhurst,427.88,1
 61,The Story of Roman and Nyro,Yancey Bilbey,869.21,3
 62,Charlie Chan in Reno,Mauricio Jarmyn,585.67,3
 63,Man in the Wilderness,Monro McSwan,678.37,3
 64,A Birder Guide to Everything,Carolyne Lardier,681.87,4
-65,How the Myth Was Made,Willi Persent,951.97,1
-66,Two Family House,Dana Redford,177.34,2
+65,How the Myth Was Made,Willi Persent,761.58,1
+66,Two Family House,Dana Redford,159.61,2
 67,Murders in the Rue Morgue,Shelia Sirmond,893.93,4
 68,The Black Swan,Teressa Keepence,553.19,4
 69,Deadly Prey,Davy Stapels,535.56,4
 70,This Is All Made Up,Briano Ellcock,739.42,2
-71,The Secret Life of Zoey,Saloma Donaldson,755.02,1
+71,The Secret Life of Zoey,Saloma Donaldson,604.02,1
 72,Death Becomes Her,Agatha Sondland,749.12,4
 73,Puncture,Consuela Poller,613.62,6
 74,Jean de Florette,Gawain Durand,628.67,3
@@ -77,25 +77,25 @@ id,titulo,autor,precio,idEditorial
 76,The Guys,Eli Mitchely,641.23,6
 77,Faire in Love,Wilhelm Dolphin,527.52,2
 78,Invisible Stripes,Staford Cluer,848.29,2
-79,They Shoot Horses,Tarra Persian,531.3,3
+79,They Shoot Horses,Tarra Persian,531.30,3
 80,The Grudge,Alexandrina Toplis,687.47,5
 81,Friday,Mel Brayfield,956.18,2
-82,Hostel,Christy Jedrzaszkiewicz,514.15,1
+82,Hostel,Christy Jedrzaszkiewicz,411.32,1
 83,People vs George Lucas,Orelle Roalfe,968.74,3
 84,Wings of the Dove,Aubine Johansen,951.66,5
 85,In Cold Blood,Suzie Flukes,690.99,5
 86,Me Without You,Lorens Barde,541.17,5
 87,Adanggaman,Sonnie Lanon,673.16,5
-88,Little Lili,Timmie Marrable,542.4,1
-89,True Blue ,Simonne Ching,981.47,1
+88,Little Lili,Timmie Marrable,433.92,1
+89,True Blue ,Simonne Ching,785.18,1
 90,Immaculate Conception of Little Dizzle,Tallie Terzza,744.32,4
 91,The Coven,Clarice Cron,700.87,5
 92,Babe,Ingeborg Frye,659.32,3
-93,Peter Pan,Rhianna Ogilby,619.07,1
+93,Peter Pan,Rhianna Ogilby,495.26,1
 94,All Gone Pete Tong,Julianne Heales,907.55,3
 95,Pulgasari,Walther Ollcott,519.35,6
 96,Alice in Wonderland,Kim Bardnam,792.79,4
 97,Year of the Dog,Kora Doleman,857.89,2
-98,Sex and Death,Ignaz Ronchka,787.7,2
+98,Sex and Death,Ignaz Ronchka,787.70,2
 99,Two Twenty Two,Hartley Bergin,963.13,6
 100,The Psychopath,Maison Yesinov,563.01,6

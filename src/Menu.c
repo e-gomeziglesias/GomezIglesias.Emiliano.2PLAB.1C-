@@ -17,8 +17,9 @@ int Menu_MostrarMenuPrincipalOpciones (void)
 	printf("3-Ordenar la lista de libros\n");
 	printf("4-Listado de los libros\n");
 	printf("5-Listado de los libros de la editorial MINOTAURO\n");
+	printf("6-Generar el archivo de salida “mapeado.csv” luego de aplicar la función map.\n");
 	printf("0-Salir\n");
-	CargarEntero(&opcion, "Ingrese opcion: ", "La opcion ingresada es invalida.", 0, 5, 2);
+	CargarEntero(&opcion, "Ingrese opcion: ", "La opcion ingresada es invalida.", 0, 6, 2);
 	return opcion;
 }
 

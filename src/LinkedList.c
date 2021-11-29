@@ -614,6 +614,7 @@ LinkedList* ll_filter(LinkedList* this, int(*fn)(void* element))
 						if(ll_add(listaResultado, auxElement)==-1) //error al agregar
 						{
 							ll_deleteLinkedList(listaResultado); //elimino la lista que cree y rompo el for
+							listaResultado = NULL;
 							break;
 						}
 					}
@@ -623,3 +624,64 @@ LinkedList* ll_filter(LinkedList* this, int(*fn)(void* element))
 	}
 	return listaResultado; //si llegara a ocurrir algun error, la lista sera NULL
 }
+
+
+LinkedList* ll_map(LinkedList* this, int(*fn)(void* pElement))
+{
+	LinkedList* listaMapeo = NULL;
+	void* auxElement = NULL;
+	int tamThis;
+	if(this != NULL && fn != NULL)
+	{
+		listaMapeo = ll_newLinkedList();
+		if(listaMapeo != NULL)
+		{
+			tamThis = ll_len(this);
+			for(int i=0; i<tamThis; i++)
+			{
+				auxElement = ll_get(this, i);
+				if(fn(auxElement)==0)
+				{
+					if(ll_add(listaMapeo, auxElement))
+					{
+						ll_deleteLinkedList(listaMapeo);
+						listaMapeo = NULL;
+						break;
+					}
+				}
+			}
+		}
+	}
+	return listaMapeo;
+}
+
+
+/*
+/// @fn int ll_count(LinkedList*, int(*)(void*))
+/// @brief Permite contar los elementos que coincidan con el criterio de la funcion fn
+///
+/// @param this listado
+/// @param fn funcion criterio
+/// @return cantidad de elementos que coinciden con el criterio
+int ll_count(LinkedList* this, int (*fn)(void* element))
+{
+	int contador = 0;
+	int tamThis;
+	int retornoFn;
+	void* auxElement;
+	if(this != NULL && fn != NULL)
+	{
+		tamThis = ll_len(this);
+		if(tamThis >0)
+		{
+			for(int i=0; i<tamThis; i++)
+			{
+				auxElement = ll_get(this, i);
+				retornoFn = fn(auxElement);
+				contador = contador + retornoFn;
+			}
+		}
+	}
+	return contador;
+}
+*/
